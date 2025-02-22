@@ -1,0 +1,279 @@
+---
+title: "Final Project 2024"
+author: "Ashlee Beacom"
+output: 
+        word_document: default
+        html_document: default
+date: "01/08/2024"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#F0E442","#CC79A7","#000000","#734f80", "#2b5a74", "#004f39", "#787221", "#003959", "#6aaf00", "#663cd3")
+```
+
+## Introduction
+
+The problem I am looking to solve here is if a previous year's yield has an affect on the future yields of one field. I have four years worth of data from a field. This data includes whether corn or soybeans has been planted, harvest data and two years have seeding data as well. I will be able to recreate the plot of the field using the latitude and longitude information given. For the most part, I will be comparing the yields and applied seeding rate for the various years. 
+
+
+The data we have been given includes the 2017 soybean harvest, the 2018 corn seeding, 2018 corn harvest, 2019 soybean harvest, the 2020 corn seeding, and the 2020 corn harvest. All data includes latitude and longitude. The harvest data includes yield numbers and the seeding include applied rate of seeds. All of this data tracks over the entire field, so using the geospatial information, it can be seen which parts of the field are yielding more crop or getting more seed. 
+
+
+## Load Data
+
+*Below I have loaded all six files containing seeding and harvest data between 2017 to 2020.*
+
+
+```{r}
+Y17CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2017 Soybeans Harvest.csv"
+Y17 <- read.csv(Y17CSV, header=TRUE)
+AR18CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2018 Corn Seeding.csv"
+AR18 <- read.csv(AR18CSV, header=TRUE)
+Y18CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2018 Corn Harvest.csv"
+Y18 <- read.csv(Y18CSV, header=TRUE)
+Y19CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2019 Soybeans Harvest.csv"
+Y19 <- read.csv(Y19CSV, header=TRUE)
+AR20CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2020 Corn Seeding.csv"
+AR20 <- read.csv(AR20CSV, header=TRUE)
+Y20CSV <- "C:/Users/ashle/OneDrive/Documents/Statistical Programming/A 2020 Corn Harvest.csv"
+Y20 <- read.csv(Y20CSV, header=TRUE)
+```
+
+## Read Data
+
+*Below is a geospatial graph showing the layout of the field. This is a test to make sure the data was loaded correctly.*
+
+```{r}
+plot(Latitude ~ Longitude,data=Y17,pch = ".")
+plot(Latitude ~ Longitude,data=AR18,pch = ".")
+plot(Latitude ~ Longitude,data=Y18,pch = ".")
+plot(Latitude ~ Longitude,data=Y19,pch = ".")
+plot(Latitude ~ Longitude,data=AR20,pch = ".")
+plot(Latitude ~ Longitude,data=Y20,pch = ".")
+```
+*The plots look the same for each year, so I can see the data was read in correctly.*
+
+```{r}
+library(moments)
+
+skewness_and_kurtosis <- function(x) {
+  skew <- skewness(x)
+  kurt <- kurtosis(x)
+  return(c(Skewness = skew, Kurtosis = kurt))
+}
+
+skewness_and_kurtosis(Y17$Longitude)
+skewness_and_kurtosis(Y17$Latitude)
+
+skewness_and_kurtosis(AR18$Longitude)
+skewness_and_kurtosis(AR18$Latitude)
+
+skewness_and_kurtosis(Y18$Longitude)
+skewness_and_kurtosis(Y18$Latitude)
+
+skewness_and_kurtosis(Y19$Longitude)
+skewness_and_kurtosis(Y19$Latitude)
+
+skewness_and_kurtosis(AR20$Longitude)
+skewness_and_kurtosis(AR20$Latitude)
+
+skewness_and_kurtosis(Y20$Longitude)
+skewness_and_kurtosis(Y20$Latitude)
+```
+*I used skewness and kurtosis is another check to make sure data has been read correctly.*
+
+## Create a Grid
+
+```{r}
+plot(Latitude ~ Longitude,data=Y20,pch = ".")
+abline(h=1:12*50,v=1:20*50,col='red')
+```
+## Merge the Data
+
+*I created three new columns for each table. These columns include row, colunm, and cell which will be used for the rest of my calculations.*
+
+```{r}
+
+spatialGrid <- function(data) {
+  data$Row <- ceiling(data$Latitude / 50)
+  data$Column <- ceiling(data$Longitude / 50)
+  data$Cell <- data$Row * 1000 + data$Column
+  return(data)
+}
+
+Y17 <- spatialGrid(Y17)
+AR18 <- spatialGrid(AR18)
+Y18 <- spatialGrid(Y18)
+Y19 <- spatialGrid(Y19)
+AR20 <- spatialGrid(AR20)
+Y20 <- spatialGrid(Y20)
+
+
+```
+
+
+*Below is where I started to aggregatae and merge the data into one datatable which I will be using going forward. The data table contains the average yield or seeding rate for each cell in the field.*
+```{r}
+cell_stats <- function(data) {
+  count_data <- as.data.frame(table(data$Cell))
+  colnames(count_data) <- c("Cell", "Observations")
+  
+  mean_yield <- aggregate(Yield ~ Cell, data=data, FUN=mean)
+  
+  colnames(mean_yield)[2] <- "Mean"
+  
+  merge_data <- merge(count_data, mean_yield, by ="Cell")
+  filter_data <- merge_data[merge_data$Observations >= 30, ]
+  return(filter_data)
+}
+
+harvest_stats <- function(data) {
+  count_data <- as.data.frame(table(data$Cell))
+  colnames(count_data) <- c("Cell", "Observations")
+  
+  mean_yield <- aggregate(AppliedRate ~ Cell, data=data, FUN=mean)
+  colnames(mean_yield)[2] <- "Mean"
+  
+  merge_data <- merge(count_data, mean_yield, by ="Cell")
+  filter_data <- merge_data[merge_data$Observations >= 30, ]
+  return(filter_data)
+}
+
+Y17_stats <- cell_stats(Y17)
+AR18_stats <- harvest_stats(AR18)
+Y18_stats <- cell_stats(Y18)
+Y19_stats <- cell_stats(Y19)
+AR20_stats <- harvest_stats(AR20)
+Y20_stats <- cell_stats(Y20)
+
+
+rename_and_merge <- function(data, column_name) {
+  selected_data <- data[, c("Cell", "Mean")]
+  colnames(selected_data)[2] <- column_name
+  return(selected_data)
+}
+
+Y17_stats <- rename_and_merge(Y17_stats, "Y17")
+AR18_stats <- rename_and_merge(AR18_stats, "AR18")
+Y18_stats <- rename_and_merge(Y18_stats, "Y18")
+Y19_stats <- rename_and_merge(Y19_stats, "Y19")
+AR20_stats <- rename_and_merge(AR20_stats, "AR20")
+Y20_stats <- rename_and_merge(Y20_stats, "Y20")
+
+Combined.dat <- Reduce(function(x,y) merge(x,y, by="Cell", all=TRUE), list(Y17_stats,AR18_stats,Y18_stats,Y19_stats,AR20_stats,Y20_stats))
+
+head(Combined.dat)
+```
+*This is a visual of which cells contain crops in the field.*
+
+```{r}
+
+plot(Row ~ Column, data= Y20)
+abline(h=1:12+0.5,v=1:20+0.5,col='red')
+
+```
+
+
+
+```{r}
+pairs(Combined.dat, main = "Pairs Plot Data")
+```
+*From the pairs plot, the yield for 2017 and applied rate for 2018 show strong correlation. The yield for 2019 and applied rate for 2020 also show a strong correlation.*
+*I used the following link to help create the pairs plot: https://www.statology.org/pairs-plots-r/ *
+
+``` {r}
+library(bnlearn)
+library(Rgraphviz)
+modela.dag <- model2network("[Y17][AR18|Y17][Y18|AR18:Y17]")
+fita = bn.fit(modela.dag, Combined.dat[,c('Y17','AR18','Y18')])
+
+strengtha <- arc.strength(modela.dag, Combined.dat[,c('Y17','AR18','Y18')])
+strength.plot(modela.dag, strengtha)
+
+modelb.dag <- model2network("[Y19][AR20|Y19][Y20|AR20:Y19]")
+fitv = bn.fit(modelb.dag, Combined.dat[,c('Y19','AR20','Y20')])
+
+strengthb <- arc.strength(modelb.dag, Combined.dat[,c('Y19','AR20','Y20')])
+strength.plot(modelb.dag, strengthb)
+
+modelc.dag <- model2network("[Y17][AR18|Y17][Y18|AR18:Y17][Y19|Y17:AR18:Y18][AR20|Y19][Y20|AR20:Y19]")
+fitc = bn.fit(modelc.dag, Combined.dat[,c('Y17','AR18','Y18','Y19','AR20','Y20')])
+
+strengthc <- arc.strength(modelc.dag, Combined.dat[,c('Y17','AR18','Y18','Y19','AR20','Y20')])
+strength.plot(modelc.dag, strengthc)
+```
+*The same strong relationship we saw in the pairs plot can be seen in these acyclical graphs as well. That is the relationship between Y17-AR18 and Y19-AR20.*
+
+
+## Normalize the Data 
+
+I have chosen to rank the data. To rank the data I used the following: 
+$$ 
+y_{ij} = rank(y_{ij})
+$$ 
+
+
+
+```{r}
+rank_data <- function(data, mean_column) {
+  data$Rank <- rank(data[[mean_column]], ties.method ="min")
+  return(data)
+}
+
+cell_rank_stats <- function(data) {
+  data <- rank_data(data, "Yield")
+  count_data <- as.data.frame(table(data$Cell))
+  colnames(count_data) <- c("Cell", "Observations")
+  rank_data <- aggregate(Rank ~ Cell, data=data, FUN=mean)
+  merge_data <- merge(count_data, rank_data, by ="Cell")
+  filter_data <- merge_data[merge_data$Observations >= 30, ]
+  return(filter_data)
+}
+
+harvest_rank_stats <- function(data) {
+  data <- rank_data(data, "AppliedRate")
+  count_data <- as.data.frame(table(data$Cell))
+  colnames(count_data) <- c("Cell", "Observations")
+  rank_data <- aggregate(Rank ~ Cell, data = data, FUN = mean)
+  merge_data <- merge(count_data, rank_data, by="Cell")
+  
+  filter_data <- merge_data[merge_data$Observations >= 30, ]
+  return(filter_data)
+}
+
+Y17_rank_stats <- cell_rank_stats(Y17)
+AR18_rank_stats <- harvest_rank_stats(AR18)
+Y18_rank_stats <- cell_rank_stats(Y18)
+Y19_rank_stats <- cell_rank_stats(Y19)
+AR20_rank_stats <- harvest_rank_stats(AR20)
+Y20_rank_stats <- cell_rank_stats(Y20)
+
+name_and_merge <- function(data, column_name) {
+  selected_data <- data[, c("Cell", "Rank")]
+  colnames(selected_data)[2] <- column_name
+  return(selected_data)
+}
+
+Y17_ranked <- name_and_merge(Y17_rank_stats, "Y17")
+AR18_ranked <- name_and_merge(AR18_rank_stats, "AR18")
+Y18_ranked <- name_and_merge(Y18_rank_stats, "Y18")
+Y19_ranked <- name_and_merge(Y19_rank_stats, "Y19")
+AR20_ranked <- name_and_merge(AR20_rank_stats, "AR20")
+Y20_ranked <- name_and_merge(Y20_rank_stats, "Y20")
+
+Ranked.dat <- Reduce(function(x,y) merge(x,y, by="Cell", all=TRUE), list(Y17_ranked,AR18_ranked,Y18_ranked,Y19_ranked,AR20_ranked,Y20_ranked))
+
+head(Ranked.dat)
+
+```
+*I ranked the yield and applied rate unaggregated data. Then I did the same aggregation as I did previously to create this new data table.*
+
+*I used the following link to help with ranking: https://statisticsglobe.com/rank-within-groups-r*
+
+```{r}
+pairs(Ranked.dat, main = "Pairs Plot Data")
+```
+*This pairs plot has some small changes when compared to the first pairs plot. The relationship between Y17 and AR18 looks a lot stronger in this pairs plot. The relationship between Y18 and Y19 did not show strong correlation in the previous plot, but you can definitely see some in this one. The Y19 to AR20 relationship looks stronger in this plot as well. I believe ranking the data created a clearer visual for the true relationships between each year. It is clear from the data that the previous year's crops do affect the future. This is something that could be used to compare different fields, crop rotations, and more to find the most efficient methods for farmers.*
