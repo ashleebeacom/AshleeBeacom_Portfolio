@@ -21,6 +21,9 @@ This project was done in Python. It demonstrates data engineering with a custom 
 Included Libraries: numpy, pandas, and matplotlib
 Questions to be answered: Does the amount of trails in a National Park affect the number of quests that visit? Does the total area of a National Park affect the number of guests that visit?
 
+### Tableau 
+You can find my Tableau visualizations at this link: https://public.tableau.com/app/profile/ashlee.beacom/vizzes 
+
 # About Me
 I am originally from Sioux Falls, SD. I have bachelors degrees in biology and chemistry from Black Hills State University and an undergraduate certificate in analytics from Dakota State University. I have been a team player my whole life, even going on to play basketball for Black Hill State University for 5 years. Since leaving the court in 2022 I have turned to running. Currently, I am training for my fifth marathon. As a big adventurer, I love the outdoors and spending time in nature. My favorite thing to do after a long day is cuddle with my cats, Pogo, Pickle, and Pride, watch the latest Survivor episode, or read a good fantasy book. 
 
