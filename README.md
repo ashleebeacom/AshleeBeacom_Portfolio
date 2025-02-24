@@ -11,6 +11,9 @@ This project was done in Python. It showcases data cleaning, analysis, and inter
 Included Libraries: numpy, pandas, seaborn, and matplotlib
 Questions to be answered: What continent generates the most renewable energy? Why country? Is the overall trend of the world going towards generating more renewable energy?
 
+### Guitar Shop Project -
+This project was done in SQL. It demonstrates sales analytics using SQL queries to derive business insights. There are 10 specific questions stated that give insight into product performance, reveneue analysis, and customer behavior.  
+
 ### Harvest Yield Project -
 This project was done in R. This project demonstrates statistical programming, merging data, data normalization, and data visualization.
 Included Libraries: moments, bnlearn, and Rgraphviz
