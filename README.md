@@ -21,6 +21,11 @@ This project was done in Python. It demonstrates data engineering with a custom 
 Included Libraries: numpy, pandas, and matplotlib
 Questions to be answered: Does the amount of trails in a National Park affect the number of quests that visit? Does the total area of a National Park affect the number of guests that visit?
 
+### Neural Network -
+This is a project done in Python. It demonstrates predictive analytics using a neural network. This was my part of a larger group project done for a class. 
+Included Libraries: numpy, pandas, sklearn, tensorflow.keras, imblearn, seaborn, and matplotlib
+Questions to be answered: Can a neural netweork predict the system's health based on the radar signal strength, sonar distance, and infrared temperatures?
+
 ### Tableau 
 You can find my Tableau visualizations at this link: https://public.tableau.com/app/profile/ashlee.beacom/vizzes 
 
