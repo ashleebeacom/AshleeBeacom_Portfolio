@@ -1,7 +1,7 @@
 # AshleeBeacom_Portfolio
 Welcome to my data analytics portfolio!
 
-I am a student at Dakota State University in the Analytics and Applied Artificial Intelligence MSAA program. I have experience working with Python, R, SQL, Excel, Power BI, and Tableau. I have also done some work with Julia and C. I have a good understanding of techniques such as data mining, data cleaning, data visualization, statistics, and analysis. 
+I am a student at Dakota State University in the Analytics and Applied Artificial Intelligence MSAA program. I have experience working with Python, R, SQL, Excel, and Tableau. I have also have limited experience working with Julia, C, and Power BI. I have a good understanding of techniques such as data mining, data cleaning, data visualization, statistics, and analysis. 
 
 This portfolio includes projects in Python, SQL, and R that demonstrate my analytics skills. There are also links to Tableau and Power BI that show my ability to present data visually in a way that is easy for viewers to understand. The work posted here was done for my studies or personal projects. Beyond my technical expertise, I am a strategic problem solver. I am confident in my skills and my dedication and ability to learn new skills at every opportunity.
 
