@@ -1,5 +1,5 @@
 ---
-title: "Final Project 2024"
+title: "Harvest Yield Project"
 author: "Ashlee Beacom"
 output: 
         word_document: default
