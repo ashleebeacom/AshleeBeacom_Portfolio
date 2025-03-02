@@ -8,7 +8,9 @@ This portfolio includes projects in Python, SQL, and R that demonstrate my analy
 # Projects
 ### Energy Project -
 This project was done in Python. It showcases data cleaning, analysis, and interpretation.
+
 Included Libraries: numpy, pandas, seaborn, and matplotlib
+
 Questions to be answered: What continent generates the most renewable energy? Why country? Is the overall trend of the world going towards generating more renewable energy?
 
 ### Guitar Shop Project -
@@ -16,17 +18,23 @@ This project was done in SQL. It demonstrates sales analytics using SQL queries 
 
 ### Harvest Yield Project -
 This project was done in R. This project demonstrates statistical programming, merging data, data normalization, and data visualization.
+
 Included Libraries: moments, bnlearn, and Rgraphviz
+
 Questions to be answered: Does the previous year's yield affect the future yields on the same field?
 
 ### National Park Project -
 This project was done in Python. It demonstrates data engineering with a custom dataset (small: 4 columns by 20 rows), data exploration, and visualization.
+
 Included Libraries: numpy, pandas, and matplotlib
+
 Questions to be answered: Does the amount of trails in a National Park affect the number of quests that visit? Does the total area of a National Park affect the number of guests that visit?
 
 ### Neural Network -
 This is a project done in Python. It demonstrates predictive analytics using a neural network. This was my part of a larger group project done for a class. 
+
 Included Libraries: numpy, pandas, sklearn, tensorflow.keras, imblearn, seaborn, and matplotlib
+
 Questions to be answered: Can a neural netweork predict the system's health based on the radar signal strength, sonar distance, and infrared temperatures?
 
 ### Tableau 
