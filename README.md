@@ -3,12 +3,11 @@ Welcome to my data analytics portfolio!
 
 I am a student at Dakota State University in the Analytics and Applied Artificial Intelligence MSAA program. I have experience working with Python, R, SQL, Excel, and Tableau. I have also have limited experience working with Julia, C, and Power BI. I have a good understanding of techniques such as data mining, data cleaning, data visualization, statistics, and analysis. 
 
-This portfolio includes projects in Python, SQL, and R that demonstrate my analytics skills. There are also links to Tableau and Power BI that show my ability to present data visually in a way that is easy for viewers to understand. The work posted here was done for my studies or personal projects. Beyond my technical expertise, I am a strategic problem solver. I am confident in my skills and my dedication and ability to learn new skills at every opportunity.
+This portfolio includes projects in Excel, Python, SQL, and R that demonstrate my analytics skills. There is also a link to Tableau Public that shows my ability to present data visually in a way that is easy for viewers to understand. The work posted here is a combination of school and personal projects. Beyond my technical expertise, I am a strategic problem solver. I am confident in my skills and my dedication and ability to learn new skills at every opportunity.
 
 # Projects
 ### Bike Sales Projecct -
 This project was done in Excel. This project highlights data cleaning, pivot tables, and dashboard creation. It analyzes bike store data to uncover customer demographics, providing valuable insights into the store's target audience and purchasing trends.
-
 
 ### Energy Project -
 This project was done in Python. It showcases data cleaning, analysis, and interpretation.
