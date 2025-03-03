@@ -7,7 +7,7 @@ This portfolio includes projects in Excel, Python, SQL, and R that demonstrate m
 
 # Projects
 ### Bike Sales Projecct -
-This project was done in Excel. This project highlights data cleaning, pivot tables, and dashboard creation. It analyzes bike store data to uncover customer demographics, providing valuable insights into the store's target audience and purchasing trends.
+This project was done in Excel. This project highlights data cleaning, pivot tables, charts, and dashboard creation. It analyzes bike store data to uncover customer demographics, providing valuable insights into the store's target audience and purchasing trends.
 
 ### Energy Project -
 This project was done in Python. It showcases data cleaning, analysis, and interpretation.
