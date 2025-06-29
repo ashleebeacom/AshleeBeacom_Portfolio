@@ -1,7 +1,7 @@
 # AshleeBeacom_Portfolio
 Welcome to my data analytics portfolio!
 
-I am a student at Dakota State University in the Analytics and Applied Artificial Intelligence MSAA program. I have experience working with Python, R, SQL, Excel, and Tableau. I have also have limited experience working with Julia, C, and Power BI. I have a good understanding of techniques such as data mining, data cleaning, data visualization, statistics, and analysis. 
+I am a student at Dakota State University in the Analytics and Applied Artificial Intelligence MSAA program. I have experience working with Python, R, SQL, Excel, Power BI and Tableau. I have a good understanding of techniques such as data mining, data cleaning, data visualization, statistics, and analysis. 
 
 This portfolio includes projects in Excel, Python, SQL, and R that demonstrate my analytics skills. There is also a link to Tableau Public that shows my ability to present data visually in a way that is easy for viewers to understand. The work posted here is a combination of school and personal projects. Beyond my technical expertise, I am a strategic problem solver. I am confident in my skills, dedication and ability to learn new skills at every opportunity.
 
@@ -44,6 +44,6 @@ Questions to be answered: Can a neural netweork predict the system's health base
 You can find my Tableau visualizations at this link: https://public.tableau.com/app/profile/ashlee.beacom/vizzes 
 
 # About Me
-I am originally from Sioux Falls, SD. I have bachelors degrees in biology and chemistry from Black Hills State University and an undergraduate certificate in analytics from Dakota State University. I have been a team player my whole life, even going on to play basketball for Black Hill State University for 5 years. Since leaving the court in 2022, I have turned to running. Currently, I am training for my fifth marathon. As a big adventurer, I love the outdoors and spending time in nature. My favorite thing to do after a long day is cuddle with my cats, watch the latest Survivor episode, or read a good fantasy book. 
+I am originally from Sioux Falls, SD. I have bachelors degrees in biology and chemistry from Black Hills State University and an undergraduate certificate in analytics from Dakota State University. I have been a team player my whole life, even going on to play basketball for Black Hill State University for 5 years. Since leaving the court in 2022, I have turned to running. Currently, I am training for my sixth marathon. As a big adventurer, I love the outdoors and spending time in nature. My favorite things to do after work are cuddle with my cats, watch the latest Survivor episode, or read a good fantasy book. 
 
 Let's connect! Please reach out at ashlee.beacom@gmail.com or www.linkedin.com/in/ashlee-beacom 
