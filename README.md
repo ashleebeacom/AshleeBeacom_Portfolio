@@ -5,6 +5,13 @@ I am a student at Dakota State University in the Analytics and Applied Artificia
 
 This portfolio includes projects in Excel, Python, SQL, and R that demonstrate my analytics skills. There is also a link to Tableau Public that shows my ability to present data visually in a way that is easy for viewers to understand. The work posted here is a combination of school and personal projects. Beyond my technical expertise, I am a strategic problem solver. I am confident in my skills, dedication and ability to learn new skills at every opportunity.
 
+
+# About Me
+I am originally from Sioux Falls, SD. After finishing my undergraduate studies, I traveled around the country and world working different seasonal jobs. This includes at a ropes course in the Outer Banks, North Carolina and at a luxury hotel in Rovaniemi, Finland. I lived in Finland from September 2022 - May 2025. While there, I was a tourism guide for a few different activities, I started my Master's program online, and I took Finnish Language Classes at the Ahjolan Kansalaisopisto/Adult learning Center in Pirkkala, Finland. 
+
+I have always been a team player, leading me to play basketball for Black Hill State University for 5 years. Since leaving the court in 2022, I have turned to running. Now, to put my competitive spirit to use, I am training for my sixth marathon and hope to one day qualify for the Boston Marathon. As a big adventurer, I love the outdoors and spending time in nature. My favorite things to do after work are cuddle with my cats, work on a current knit/crochet projects, watch the latest Survivor episode, or read a good fantasy book. 
+
+
 # Projects
 ### Bike Sales Project -
 This project was done in Excel. This project highlights data cleaning, pivot tables, charts, and dashboard creation. It analyzes bike store data to uncover customer demographics, providing valuable insights into the store's target audience and purchasing trends.
@@ -43,7 +50,3 @@ Questions to be answered: Can a neural netweork predict the system's health base
 ### Tableau 
 You can find my Tableau visualizations at this link: https://public.tableau.com/app/profile/ashlee.beacom/vizzes 
 
-# About Me
-I am originally from Sioux Falls, SD. After finishing my undergraduate studies, I traveled around the country and world working different seasonal jobs. This includes at a ropes course in the Outer Banks, North Carolina and at a luxury hotel in Rovaniemi, Finland. I lived in Finland from September 2022 - May 2025. While there, I was a tourism guide for a few different activities, I started my Master's program online, and I took Finnish Language Classes at the Ahjolan Kansalaisopisto/Adult learning Center in Pirkkala, Finland. 
-
-I have always been a team player, leading me to play basketball for Black Hill State University for 5 years. Since leaving the court in 2022, I have turned to running. Now, to put my competitive spirit to use, I am training for my sixth marathon and hope to one day qualify for the Boston Marathon. As a big adventurer, I love the outdoors and spending time in nature. My favorite things to do after work are cuddle with my cats, work on a current knit/crochet projects, watch the latest Survivor episode, or read a good fantasy book. 
